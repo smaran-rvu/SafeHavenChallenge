@@ -39,7 +39,7 @@ These datasets include:
 
 Auxiliary Datasets: 
 
-A **Cities** dataset with related FIPS and Zip Codes (used for linking the above datasets to the NCMEC data)
+A **Cities** dataset with related FIPS and Zip Codes
 
 **Unemployment Rates** (Not really used in this challenge but interesting data!)
 
@@ -112,7 +112,7 @@ Judges will consider the following criteria during final presentation:
 </div>
 <div>
 <img src="./Images/Bob.png" alt="Bob Foreman" width="100" height="100" />
-<p><a href = "mailto: robert.foreman@lexisnexisrisk.com">Bob Foreman</a> has been an ECL Trainer for the past 12 years, and has been a Technology Teacher for longer than he wants to admit. He will be your primary onsite contact regarding all ECL related questions during this event.</p>
+<p><a href = "mailto: robert.foreman@lexisnexisrisk.com">Bob Foreman</a> has been an ECL Trainer for the past 13 years, and has been a Technology Teacher for longer than he wants to admit. He will be your primary onsite contact regarding all ECL related questions during this event.</p>
 </div>
 
 <div>
