@@ -20,7 +20,7 @@ EXPORT unemp_rates := RECORD
     STRING Nov;
     STRING Dec;
 END; 
-EXPORT unemp_ratesDS := DATASET('~hmk::in::us_unemploymentrates',unemp_rates,CSV(HEADING(1)));
+EXPORT unemp_ratesDS := DATASET('~safe::in::us_unemploymentrates',unemp_rates,CSV(HEADING(1)));
 
 //https://www.ers.usda.gov/data-products/county-level-data-sets/county-level-data-sets-download-data/
 //Unemployment stats from 2000-2021
@@ -32,7 +32,7 @@ EXPORT unemp_byCounty := RECORD
     REAL8     Value;
 END;
 
-EXPORT unemp_byCountyDS := DATASET('~hmk::in::unemployment',unemp_byCounty,CSV(HEADING(1)));
+EXPORT unemp_byCountyDS := DATASET('~safe::in::unemployment',unemp_byCounty,CSV(HEADING(1)));
 
 EXPORT pov_estimates := RECORD
     UNSIGNED3 FIPS_Code;
@@ -42,7 +42,7 @@ EXPORT pov_estimates := RECORD
     REAL8     Value;
 END;
 
-EXPORT pov_estimatesDS := DATASET('~hmk::in::poverty',pov_estimates,CSV(HEADING(1)));
+EXPORT pov_estimatesDS := DATASET('~safe::in::poverty',pov_estimates,CSV(HEADING(1)));
 
 EXPORT Education := RECORD
     UNSIGNED3 FIPS_Code; //Federal_Information_Processing_Standard
@@ -52,7 +52,7 @@ EXPORT Education := RECORD
     REAL8     Value;
 END;
 
-EXPORT EducationDS := DATASET('~hmk::in::education',education,CSV(HEADING(1)));
+EXPORT EducationDS := DATASET('~safe::in::education',education,CSV(HEADING(1)));
 
 EXPORT pop_estimates := RECORD
     UNSIGNED3 FIPS_Code;
@@ -62,7 +62,7 @@ EXPORT pop_estimates := RECORD
     REAL8     Value;
 END;
 
-EXPORT pop_estimatesDS := DATASET('~hmk::in::population',pop_estimates,CSV(HEADING(1)));
+EXPORT pop_estimatesDS := DATASET('~safe::in::population',pop_estimates,CSV(HEADING(1)));
 
 //https://hifld-geoplatform.hub.arcgis.com/datasets
 //Fire Stations
@@ -100,7 +100,7 @@ EXPORT FireRec := RECORD
     STRING38  globalid;
 END;
 
-EXPORT FireDS := DATASET('~hmk::in::Fire',FireRec,CSV(HEADING(1)));
+EXPORT FireDS := DATASET('~safe::in::Fire',FireRec,CSV(HEADING(1)));
 
 //Local Law Enforcement Locations in US
 //https://hifld-geoplatform.opendata.arcgis.com/datasets/local-law-enforcement-locations/explore
@@ -147,7 +147,7 @@ EXPORT PoliceRec := RECORD
     INTEGER2  ptciv;
 END;
 
-EXPORT PoliceDS := DATASET('~hmk::in::Police',PoliceRec,CSV(HEADING(1)));
+EXPORT PoliceDS := DATASET('~safe::in::Police',PoliceRec,CSV(HEADING(1)));
 
 EXPORT HospitalRec := RECORD
     REAL8     xCoor;
@@ -186,7 +186,7 @@ EXPORT HospitalRec := RECORD
     STRING15  helipad;
 END;
 
-EXPORT HospitalDS := DATASET('~hmk::in::Hospitals',HospitalRec,CSV(HEADING(1)));
+EXPORT HospitalDS := DATASET('~safe::in::Hospitals',HospitalRec,CSV(HEADING(1)));
 
 //Cities Database
 //Free Version: https://simplemaps.com/data/us-cities
@@ -211,7 +211,7 @@ EXPORT CitiesRec := RECORD
     UNSIGNED5 id;
 END;
 
-EXPORT City_DS := DATASET('~hmk::IN::uscities',citiesrec,CSV(HEADING(1)));
+EXPORT City_DS := DATASET('~safe::IN::uscities',citiesrec,CSV(HEADING(1)));
 
 //MORE DATA FROM Homeland Infrastructure Foundation-Level Data (HIFLD)
 // https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::all-places-of-worship/explore
@@ -273,7 +273,7 @@ EXPORT ChurchRec := RECORD
     UNSIGNED3 arc_postal;
 END;
 
-EXPORT ChurchDS := DATASET('~hmk::in::churches',churchrec,CSV(HEADING(1)));
+EXPORT ChurchDS := DATASET('~safe::in::churches',churchrec,CSV(HEADING(1)));
 
 //FEMA: 
 //https://gis-fema.hub.arcgis.com/datasets/da001dee68474719b934a166f7abdc46/explore
@@ -295,5 +295,5 @@ EXPORT FoodBankRec := RECORD
     STRING36 globalid;
 END;
 
-EXPORT FoodBankDS := DATASET('~hmk::in::foodbanks',foodbankrec,CSV(HEADING(1)));
+EXPORT FoodBankDS := DATASET('~safe::in::foodbanks',foodbankrec,CSV(HEADING(1)));
 END;
