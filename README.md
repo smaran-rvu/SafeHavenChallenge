@@ -27,6 +27,8 @@ These datasets include:
 
 **Population**
 
+**Crime**
+
 **Police**
 
 **Fire Stations**
@@ -85,7 +87,7 @@ https://hpccsystems.com/download/free-modules/machine-learning-library
 
 ## Challenge Expectation
 
-Judges will consider the following criteria during final presentation:
+Judges will consider the following criteria during your final presentation:
 
 - How did you answer the challenge questions?
 - How did you approach the solution?
