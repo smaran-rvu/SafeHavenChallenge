@@ -196,7 +196,7 @@ EXPORT CitiesRec := RECORD
     STRING45  city_ascii;
     STRING2   state_id;
     STRING20  state_name;
-    STRING5   county_fips;
+    UNSIGNED3 county_fips;
     STRING30  county_name;
     REAL4     lat;
     REAL8     lng;
@@ -320,8 +320,8 @@ EXPORT CrimeRec := RECORD
     STRING MVTHEFT;
     STRING ARSON;
     STRING population;
-    STRING FIPS_ST;
-    STRING FIPS_CTY;
+    UNSIGNED1 FIPS_ST;
+    UNSIGNED3 FIPS_CTY;
 END;
 
 EXPORT CrimeDS := DATASET('~safe::in::crime',crimerec,CSV(HEADING(1)));
