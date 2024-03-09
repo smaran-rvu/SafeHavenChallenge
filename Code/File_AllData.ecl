@@ -296,4 +296,33 @@ EXPORT FoodBankRec := RECORD
 END;
 
 EXPORT FoodBankDS := DATASET('~safe::in::foodbanks',foodbankrec,CSV(HEADING(1)));
+
+EXPORT CrimeRec := RECORD
+    STRING county_name;
+    STRING crime_rate_per_100000;
+    STRING index1;
+    STRING EDITION;
+    STRING PART;
+    STRING IDNO;
+    STRING CPOPARST;
+    STRING CPOPCRIM;
+    STRING AG_ARRST;
+    STRING AG_OFF;
+    STRING COVIND;
+    STRING INDEX2;
+    STRING MODINDX;
+    STRING MURDER;
+    STRING RAPE;
+    STRING ROBBERY;
+    STRING AGASSLT;
+    STRING BURGLRY;
+    STRING LARCENY;
+    STRING MVTHEFT;
+    STRING ARSON;
+    STRING population;
+    STRING FIPS_ST;
+    STRING FIPS_CTY;
+END;
+
+EXPORT CrimeDS := DATASET('~safe::in::crime',crimerec,CSV(HEADING(1)));
 END;
