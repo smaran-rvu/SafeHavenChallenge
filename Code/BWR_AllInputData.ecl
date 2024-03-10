@@ -1,5 +1,5 @@
 ﻿IMPORT $;
-SAFE := $.File_AllData; //See this file for you data dictionary (field names and data sources)
+SAFE := $.File_AllData; //See this file for your data dictionary (field names and data sources)
 //RISK:
 OUTPUT(SAFE.unemp_byCountyDS,NAMED('Unemployment'));
 OUTPUT(SAFE.EducationDS,NAMED('Education'));
@@ -17,4 +17,4 @@ OUTPUT(SAFE.City_DS,NAMED('Cities'));
 OUTPUT(SORT(SAFE.City_DS,county_fips),NAMED('FipsCities'));
 OUTPUT(COUNT(SAFE.City_DS),NAMED('Cities_Cnt'));
 
-// This file will help yopu get to know the data
+// This file will help yop get to know the data
