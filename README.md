@@ -2,7 +2,7 @@
 Welcome to another HPCC Systems and ECL Code Challenge!
 
 ## Introduction
-Many travelers find themselves on occasion in a strange land and a strange city, sometimes without their control. Without knowing the risks and dangers in that area, sometimes a tourist can be suddenly be in a dangerous situation. What can we do as developers to help prevent this? 
+Many travelers find themselves on occasion in a strange land and a strange city, sometimes without their control. Without knowing the risks and dangers in that area, sometimes a tourist can suddenly be in a dangerous situation. What can we do as developers to help prevent this? 
 
 ## The Challenge
 Your challenge is to analyze different social factors such as poverty, unemployment, and other factors in US Counties and develop insights and additional information for the traveler.
@@ -11,7 +11,7 @@ The goal of the challenge is to provide two important sets of information:
 
 1.	Analysis of social factors in an area (unemployment, education, poverty, and population) and identify it as a "Hot Spot".
 
-2.	Provide additional information to the traveler to help find safe have resources in their area (fire and police stations, hospitals, churches, food banks, etc.).
+2.	Provide additional information to the traveler to help find "safe haven" resources in their area (fire and police stations, hospitals, churches, food banks, etc.).
 
 
 ## The Data
