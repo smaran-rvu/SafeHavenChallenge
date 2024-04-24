@@ -1,4 +1,5 @@
 ﻿//This File generates the core "safety" data and indexes used in the SafeHaven Service
+//Original code written by Hackathon winner Avinash Anish, a student at RVCE college in India.
 IMPORT $, STD;
 
 UpperIt(STRING txt) := Std.Str.ToUpperCase(txt);
