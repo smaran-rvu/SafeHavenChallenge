@@ -73,13 +73,13 @@ For a quick start on ECL syntax, please visit the [Learn ECL](https://hpccsystem
 https://www.youtube.com/watch?time_continue=192&v=Lk78BCCtM-0
 
 - ECL documentation:
-http://cdn.hpccsystems.com/releases/CE-Candidate-9.4.30/docs/EN_US/ECLLanguageReference_EN_US-9.4.30-1.pdf
+http://cdn.hpccsystems.com/releases/CE-Candidate-9.6.24/docs/EN_US/ECLLanguageReference_EN_US-9.6.24-1.pdf
 
 - Visualization document:
-https://cdn.hpccsystems.com/releases/CE-Candidate-9.4.30/docs/EN_US/VisualizingECL_EN_US-9.4.30-1.pdf
+https://cdn.hpccsystems.com/releases/CE-Candidate-9.6.24/docs/EN_US/VisualizingECL_EN_US-9.6.24-1.pdf
 
 - Standard Library:
-https://cdn.hpccsystems.com/releases/CE-Candidate-9.4.30/docs/EN_US/ECLStandardLibraryReference_EN_US-9.4.30-1.pdf
+https://cdn.hpccsystems.com/releases/CE-Candidate-9.6.24/docs/EN_US/ECLStandardLibraryReference_EN_US-9.6.24-1.pdf
 
 - Machine Learning:
 https://hpccsystems.com/download/free-modules/machine-learning-library
@@ -93,7 +93,7 @@ Judges will consider the following criteria during your final presentation:
 - How did you approach the solution?
 - What datasets did you use? Did you incorporate any new datasets into the challenge?
 - How you presented your results (via ROXIE,Visualization or other medium)- please reference pertinent ECL workunits with submission 
-- Drawing conclusions (How did we help find missing children?)
+- Drawing conclusions (Identify hot spots and their safe havens)
 - Demo of work via a PowerPoint presentation or live demo by your team
 
 ## Tips for a Great Score
