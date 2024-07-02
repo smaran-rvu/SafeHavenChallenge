@@ -31,14 +31,14 @@ CleanChurchFIPS :=       JOIN(CleanChurch,Cities,
                                      SELF.PrimaryFIPS := (UNSIGNED3)RIGHT.county_fips,
                                      SELF             := LEFT),LEFT OUTER,LOOKUP);
 //Write out the new file and then define it using DATASET
-WriteChurches      := OUTPUT(CleanChurchFIPS,,'~SAFE::OUT::Churches',OVERWRITE);                                          
+WriteChurches      := OUTPUT(CleanChurchFIPS,,'~SAFE::OUT::Churches',OVERWRITE,NAMED('CleanedChurches'));                                          
 CleanChurchesDS    := DATASET('~SAFE::OUT::Churches',CleanChurchRec,FLAT);
 
 //Declare and Build Indexes (special datasets that can be used in the ROXIE data delivery cluster
 CleanChurchIDX     := INDEX(CleanChurchesDS,{city,state},{CleanChurchesDS},'~SAFE::IDX::Church::CityPay');
-CleanChurchFIPSIDX := INDEX(CleanChurchesDS,{PrimaryFIPS},{CleanChurchesDS},'~SAFE::IDX::Church::FIPSPay');
-BuildChurchIDX     := BUILD(CleanChurchIDX,OVERWRITE);
-BuildChurchFIPSIDX := BUILD(CleanChurchFIPSIDX,OVERWRITE);
+CleanChurchFIPSIDX := INDEX(CleanChurchesDS(PrimaryFIPS <> 0),{PrimaryFIPS},{CleanChurchesDS},'~SAFE::IDX::Church::FIPSPay');
+BuildChurchIDX     := BUILD(CleanChurchIDX,OVERWRITE,NAMED('CityStateIDX'));
+BuildChurchFIPSIDX := BUILD(CleanChurchFIPSIDX,OVERWRITE,NAMED('FIPSIDX'));
 
 //SEQUENTIAL is similar to OUTPUT, but executes the actions in sequence instead of the default parallel actions of the HPCC
 SEQUENTIAL(WriteChurches,BuildChurchIDX,BuildChurchFIPSIDX);
