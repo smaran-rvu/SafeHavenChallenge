@@ -22,10 +22,10 @@ CleanChurchFIPSIDX := INDEX(CleanChurchesDS,{PrimaryFIPS},{CleanChurchesDS},'~SA
     
 */
 EXPORT Safe_Svc(FipsVal,STRING22 CityVal,STRING2 StateVal) := FUNCTION
-MyChurch := IF(FipsVal = 0,
-               OUTPUT(CleanChurchIDX(City=UpperIt(CityVal),State=UpperIt(StateVal))),
-               OUTPUT(CleanChurchFIPSIDX(PrimaryFIPS=FipsVal)));
-RETURN MyChurch;
+ MyChurch := IF(FipsVal = 0,
+                OUTPUT(CleanChurchIDX(City=UpperIt(CityVal),State=UpperIt(StateVal))),
+                OUTPUT(CleanChurchFIPSIDX(PrimaryFIPS=FipsVal)));
+ RETURN MyChurch;
 END;
 
 

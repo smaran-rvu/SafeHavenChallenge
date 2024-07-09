@@ -17,7 +17,7 @@ RiskRec := RECORD
 END;
 
 BaseInfo := PROJECT(CityDS,RiskRec);
-OUTPUT(BaseInfo,NAMED('BaseData'));
+OUTPUT(BaseInfo),NAMED('BaseData'));
 
 RiskPlusRec := RECORD
  BaseInfo;

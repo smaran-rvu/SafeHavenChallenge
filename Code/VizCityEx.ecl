@@ -3,7 +3,7 @@
 Cities := $.File_AllData.City_DS;
 
 //Build Table
-DensityTbl := TABLE(Cities,{(INTEGER)county_fips,(INTEGER)density});
+DensityTbl := TABLE(Cities,{fips := INTFORMAT(Cities.county_fips,5,1),(INTEGER)density});
 
 OUTPUT(DensityTbl,NAMED('DenFIPS'));
 
