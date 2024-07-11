@@ -1,4 +1,5 @@
 {
     "ecl.launchConfiguration": "ChallengeCluster",
-    "ecl.targetCluster": {}
+    "ecl.targetCluster": {},
+    "ecl.eclccPath": "D:\\Smaran\\Apps\\HPCC\\clienttools\\bin\\eclcc.exe"
 }
