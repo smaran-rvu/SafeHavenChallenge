@@ -64,6 +64,14 @@ END;
 
 EXPORT pop_estimatesDS := DATASET('~safe::in::population',pop_estimates,CSV(HEADING(1)));
 
+EXPORT GunViolence := RECORD
+    STRING county_name;
+    INTEGER n_killed;
+    INTEGER n_injured;
+END;
+
+EXPORT GunViolenceDS := DATASET('~anonymous_solvers::smaranrb::aggregated_gun_violence_data.csv' ,GunViolence,CSV(HEADING(1)));
+
 //https://hifld-geoplatform.hub.arcgis.com/datasets
 //Fire Stations
 //Available for public use. 
