@@ -182,3 +182,19 @@ OUTPUT(SORT(JoinGunV,-GunViolenceScore),NAMED('AddedGunViolenceScore'));
 
 GunViolenceViz := TABLE(JoinGunV,{JoinGunV.county_fips, GunViolenceScore});
 OUTPUT(SORT(GunViolenceViz, -GunViolenceScore),NAMED('GunViolenceScorePerFIPS'), ALL);
+
+TotalTable := JOIN(JoinGunV, JoinGunV,
+                  LEFT.county_fips = (INTEGER)RIGHT.county_fips,
+                  TRANSFORM(RiskPlusRec,
+                        SELF.Total := LEFT.Illiteracyscore * 0.01 * 0.2+
+                        LEFT.povertyscore * 0.01 * 0.15+ 
+                        LEFT.crimescore *0.3 +
+                        LEFT.gunviolencescore * 0.01 * 0.2 + 
+                        LEFT.unemploymentscore * 0.15, 
+                        SELF            := RIGHT),
+                            RIGHT OUTER);
+
+OUTPUT(SORT(TotalTable, -Total),NAMED('AddedTotalScore'));
+
+TotalTableViz := TABLE(TotalTable,{TotalTable.county_fips, Total});
+OUTPUT(SORT(TotalTableViz, -Total),NAMED('TotalScorePerFIPS'), ALL);
