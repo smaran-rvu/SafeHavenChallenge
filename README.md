@@ -13,6 +13,7 @@ The goal of the challenge is to provide two important sets of information:
 
 2.	Provide additional information to the traveler to help find "safe haven" resources in their area (fire and police stations, hospitals, churches, food banks, etc.).
 
+### NOTE: This repo focuses on the aspect 1 - Identification of Hot Spots
 
 ## The Data
 The following public datasets has been collected from all 50 states.
@@ -45,100 +46,40 @@ A **Cities** dataset with related FIPS and Zip Codes
 
 **Unemployment Rates** (Not really used in this challenge but interesting data!)
 
-**You are not limited to using these datasets! Extra credit will be rewarded by linking in other pertinent data!**  
+**Gun Violence Rates** - https://www.kaggle.com/datasets/jameslko/gun-violence-data
 
-## Tools
+## File for Analysis:
 
-Start by installing one or both of the following IDEs: 
+File path - `./Code/BWR_HotSpotAnalysis.ecl`
 
-Install the flagship ECL IDE if you are a Windows user [ECL IDE Install](https://hpccsystems.com/download/#h-bare-metal-non-containerized-platform).
+## Aspects for Analysis:
 
-If you have a Mac or Linux box, install the Visual Studio Code IDE for your appropriate O/S, and then refer to the Installation PDF in the Docs folder of this repository to configure your IDE for ECL usage.  
-PDFs in the Docs folder of this repository can be found to guide you through the installation and configuration.
+1. Crime: 
+We have changed the crime dataset a bit to also include the other crimes listed in the dataset proportional to their weights according to how they affect the traveller
 
-[VS-Code IDE Install Page](https://code.visualstudio.com/download).
+- Firstly, we have calculated the respective crime rates of Murder, Rape, Robbery, Assault, Larceny (note: It is pronounced as 'Larseny') and Theft per 1000 individuals. This gives us a clear idea of how often the crime occurs without the influence of how large the population is in the specific county.
 
-Download QuickStart.mod located in this repository's root folder. This file has the initial code you need for this challenge. 
-The import process will be discussed at the Workshops, but in both IDEs simply open the MOD file and follow the prompts. CTRL+O in the ECL IDE, and the F1 key in VS-Code will pop up the command dialog, and look for the "ECL: Import 'mod' file" command. 
+- We have assigned and multiplied each crime rate with its weight. We have given a decreasing order of weight to the crime rates as follows:
+   i) Murder
+  ii) Rape
+ iii) Robbery
+ iv) Assault
+  v) Larceny
+ vi) Theft
+The order signifies a decreasing level of damage/harm to the victim of the crime.
 
-If you need more information on the ECL jobs you are running please use [ECL Watch Page](http://training.us-hpccsystems-dev.azure.lnrsg.io:8010/)
+2. Poverty:
+According to the Beureau of Justice Statistics, the average income for a criminal is around $15,000 (15K), which matches the poverty line's boundary. Thus, we have taken the Estimate percentage of people of all ages in poverty in 2021. This is our poverty score
 
-**Note: This cluster will only be active during the event!** After the event, you can create your own localized container cluster, or visit our public "Play" Cluster: (https://play.hpccsystems.com:18010) 
+3. Education/Illiteracy:
+We have taken 3 statistics for finding out the illiteracy rate for each county - 
+a) Percent of adults with less than a high school diploma, 
+b) Percent of adults completing some college or associate's degree, 2017-21 and
+c) Percent of adults with a bachelor's degree or higher, 2017-21
+According to the United States Sentencing Commission, close to half of all criminals fall under category (a), i.e. they have less than a high school diploma. Category (b) has more individuals committing more sexually involved crimes, while the last category comprises of individuals committing fraud. This was the inspiration behind the choosing of weight values for each category.
 
-For a quick start on ECL syntax, please visit the [Learn ECL](https://hpccsystems-solutions-lab.github.io/) page. 
+4. Unemployment:
+All statistics point out that unemployment and severe divides in the socio-economic status in the society cause more crime. Since unemployment directly affects crime rates irrespective of type, we have chosen to use the unemployment rate (percentage) of every county in 2021.
 
-## Additional Resources
-
-- ECL training containing six short videos:
-https://www.youtube.com/watch?time_continue=192&v=Lk78BCCtM-0
-
-- ECL documentation:
-http://cdn.hpccsystems.com/releases/CE-Candidate-9.6.24/docs/EN_US/ECLLanguageReference_EN_US-9.6.24-1.pdf
-
-- Visualization document:
-https://cdn.hpccsystems.com/releases/CE-Candidate-9.6.24/docs/EN_US/VisualizingECL_EN_US-9.6.24-1.pdf
-
-- Standard Library:
-https://cdn.hpccsystems.com/releases/CE-Candidate-9.6.24/docs/EN_US/ECLStandardLibraryReference_EN_US-9.6.24-1.pdf
-
-- Machine Learning:
-https://hpccsystems.com/download/free-modules/machine-learning-library
-
-
-## Challenge Expectation
-
-Judges will consider the following criteria during your final presentation:
-
-- How did you answer the challenge questions?
-- How did you approach the solution?
-- What datasets did you use? Did you incorporate any new datasets into the challenge?
-- How you presented your results (via ROXIE,Visualization or other medium)- please reference pertinent ECL workunits with submission 
-- Drawing conclusions (Identify hot spots and their safe havens)
-- Demo of work via a PowerPoint presentation or live demo by your team
-
-## Tips for a Great Score
-
-- Since your solution is the key part to this challenge you can use "#OPTION('obfuscateOutput', TRUE);" at the start of your code to hide it from being viewed on ECL Watchpage. If you decide to use #OPTION make sure to remove if from the WUID that you shared with the judges. When obfuscateOutput set to true, details are removed from the generated workunit, including ECL code, estimates of record size, and number of records.
-- If you want to write the result to a file, make sure the file name starts with your team's name for uniqueness purpose.
-- Make sure the query names are unique and easy to identify. Do not use generic names like test, mentors, or roxie. We suggest adding your team's name as well. General names will result in other teams overwriting your files, queries, and results
-- We encourage team play so teams that help answer questions in the public forums will be considered favorably in judging.
-- Direct emails and direct messages to judges asking for support will be **ignored** and it won't work in team's favor
-- We also encourage students to leverage our community forum and/or StackOverflow for ECL coding related questions. Please make sure to tag your questions with **hpcc-ecl**.
-
-## Mentors
-
-<div class="mentors">
-<div>
-<img src="./Images/Richard.jpg" alt="Richard Taylor" width="150" height="100" />
-<p><a href = "mailto: richard.taylor@lexisnexisrisk.com">Richard Taylor</a> is the Chief Trainer at LexisNexis and an ECL Master for the past 20 years. He is also the original member of the Documentation Team.</p>
-</div>
-<div>
-<img src="./Images/Bob.png" alt="Bob Foreman" width="100" height="100" />
-<p><a href = "mailto: robert.foreman@lexisnexisrisk.com">Bob Foreman</a> has been an ECL Trainer for the past 13 years, and has been a Technology Teacher for longer than he wants to admit. He will be your primary onsite contact regarding all ECL related questions during this event.</p>
-</div>
-
-<div>
-<img src="./Images/George.png" alt="George Foreman" width="100" />
-<p><a href = "mailto: george.foreman@lexisnexisrisk.com">George Foreman</a> is our HPCC Systems Product Specialist and Technical Writer. He will be available onsite to help you with locating the resources you need during this event.</p>
-</div>
-
-<div>
-<img src="./Images/Hugo.jpg" alt="Hugo Watanuki" width="100" />
-<p><a href = "mailto: hugo.watanuki@lexisnexisrisk.com">Hugo Watanuki</a> is responsible for the HPCC Systems Summer Internship Program. He will be available online in our slack channel to help you with ECL questions and resources you might need during this event.</p>
-</div>
-
-<div>
-<img src="./Images/MauroDM.jpg" alt="Mauro Marques" width="100" />
-<p><a href = "mailto: mauro.marques@lexisnexisrisk.com">Mauro Marques</a> is a Senior Technical Support Engineer at LexisNexis Risk Solutions, and supports the development and delivery of training programs for the HPCC Systems platform in the Brazil region. He will also be available online in our slack channel to help you with ECL questions and resources you might need during this event.</p>
-</div>
-
-<div>
-<img src="./Images/Alysson.png" alt="Alysson Oliveira" width="100" />
-<p><a href = "mailto: alysson.oliveira@lexisnexisrisk.com">Alysson Oliveira</a> is a Software Engineer at LexisNexis Risk Solutions. His main role revolves around support and development of training programs for HPCC Systems in Brazil , covering the academic audience, computing and data professionals and researchers. He also works to establish partnerships with universities to offer undergraduate students the opportunity to work on scientific projects. He will also be available online in our slack channel to help you with ECL questions and resources you might need during this event.</p>
-</div>
-<div></div>
-</div>
-
-
-
- 
+5. Gun Violence:
+As much as this crime would have been included under crime score, we felt the need to specifically emphasize the impact of Gun violence in America. This crime has a higher impact when compared to most crimes and is recently on the rise for targeting specific ethnic groups, which is why we felt the need to include it separately. We took reference from a Kaggle dataset and dropped all the columns which were not necessary in calculating the number of fatalities that have occurred because of gun violence. The number of deaths are given more emphasis and higher weights when compare to the number of injuries.
